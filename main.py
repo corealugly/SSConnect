@@ -20,12 +20,11 @@ def listStrip(list):
         locallist.append(id.strip())
     return locallist
 
-1
 def Phosts(Lhosts):
     for idy in Lhosts.split("\n"):
         # result = re.match(r"#", idy)
         # if not (re.match(r"#", idy)):
-        regular = re.compile(r'(?P<ip>^[ \t]*\d+.\d+.\d+.\d+){1}([\t ]+(?:(?!\d+.\d+.\d+.\d+)\w+[\.\-]{0,1})+)+$')
+        regular = re.compile(r'(^[ \t]*(?P<ip>\d+.\d+.\d+.\d+){1}(?P<host>(?:[\t ]+(?:(?!\d+.\d+.\d+.\d+)\w+[\.\-]{0,1})+)+)$)')
         result = regular.match(idy)
         if result:
             print idy
